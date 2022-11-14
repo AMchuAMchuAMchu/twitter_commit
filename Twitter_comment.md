@@ -30,9 +30,12 @@ file = open(file='d:/twitter_comment.txt',encoding='utf-8',mode='w')
 for i in range(1,101,1):
     print('====>',i)
     result01 = requests.request(method='get',
-                                url='https://explorer.altmetric.com/details/94531651/twitter/page:%d'%(i))
-                                # url='https://explorer.altmetric.com/details/77676422/twitter/page:%d'%(i))
-                                    # 'https://explorer.altmetric.com/details/94531651/twitter/page:2?'
+                                url='https://explorer.altmetric.com/details/82549788/twitter/page:%d'%(i))
+                                # 1.0 url='https://explorer.altmetric.com/details/77676422/twitter/page:%d'%(i))
+                                # 2.0 'https://explorer.altmetric.com/details/94531651/twitter/page:2?'
+                                # 3.0 'https://explorer.altmetric.com/details/91957925/twitter/page:2?_pjax=.content-panel'
+                                # 4.0 'https://explorer.altmetric.com/details/77699394/twitter/page:2?_pjax=.content-panel'
+                                # 5.0 'https://explorer.altmetric.com/details/82549788/twitter/page:2?_pjax=.content-panel'
     result01.encoding = 'utf-8'
 
     result002 = BeautifulSoup(result01.text, 'html.parser')
@@ -44,7 +47,6 @@ for i in range(1,101,1):
             file.writelines(res)
             file.write('\n')
             print('第',i-4,'条','==>',item.text)
-
 ```
 
 ### 03 依赖库问题
